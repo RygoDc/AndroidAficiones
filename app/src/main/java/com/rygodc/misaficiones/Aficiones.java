@@ -44,20 +44,18 @@ public class Aficiones extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.favButton) {
-            // Obtener el fragment activo
-            int currentItem = binding.viewPager.getCurrentItem();
-            String fragmentName = getFragmentName(currentItem);
+            int itemActual = binding.viewPager.getCurrentItem();
+            String nombreFragmento = getNombreFragmento(itemActual);
 
-            // Guardar en SharedPreferences
             SharedPreferences preferences = getSharedPreferences("MisAficionesPrefs", MODE_PRIVATE);
             SharedPreferences.Editor editor = preferences.edit();
-            editor.putString("favorito", fragmentName);
+            editor.putString("favorito", nombreFragmento);
             editor.apply();
+            Toast.makeText(this, "Fragment favorito guardado: " + nombreFragmento, Toast.LENGTH_SHORT).show();
 
-            Toast.makeText(this, "Fragment favorito guardado: " + fragmentName, Toast.LENGTH_SHORT).show();
 
-        } else if (id == R.id.sobreMiButton) {
-            // Recuperar información del favorito y pasarla a la nueva actividad
+        }
+        else if (id == R.id.sobreMiButton) {
             SharedPreferences prefs = getSharedPreferences("MisAficionesPrefs", MODE_PRIVATE);
             String favorito = prefs.getString("favorito", "Sin preferencia");
 
@@ -70,20 +68,19 @@ public class Aficiones extends AppCompatActivity {
             startActivity(githubIntent);
 
         } else {
-            return super.onOptionsItemSelected(item); // Dejar que Android maneje otras acciones
+            return super.onOptionsItemSelected(item);
         }
 
         return true;
     }
 
-    private String getFragmentName(int position) {
-        // Devuelve el nombre según la posición en el ViewPager
+    private String getNombreFragmento(int position) {
         if (position == 0) {
-            return "Fragment 1: Afición 1";
+            return "Son los Pandas";
         } else if (position == 1) {
-            return "Fragment 2: Afición 2";
+            return "Ser Árbitro de Fútbol";
         } else if (position == 2) {
-            return "Fragment 3: Afición 3";
+            return "Jugar Fútbol como Portero";
         } else {
             return "Fragment desconocido";
         }

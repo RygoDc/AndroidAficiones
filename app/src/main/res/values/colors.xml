@@ -11,5 +11,7 @@
     <color name="pink">#FFFF80AB</color>
     <color name="brown">#FF8B4513</color>
     <color name="grey">#FFBDBDBD</color>
+    <color name="light_grey">#c2c2bc</color>
+
 
 </resources>
