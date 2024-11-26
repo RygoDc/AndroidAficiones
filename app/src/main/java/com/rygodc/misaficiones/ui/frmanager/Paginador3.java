@@ -7,8 +7,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.rygodc.misaficiones.fr.aficiones.Arbitro;
-import com.rygodc.misaficiones.fr.aficiones.Jugar;
-import com.rygodc.misaficiones.fr.aficiones.Panda;
 import com.rygodc.misaficiones.fragments.Informacion;
 
 public class Paginador3 extends FragmentPagerAdapter {
